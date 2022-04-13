@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FormPHP</title>
+</head>
+<body>
+
+    <form action="resultat-formulaire.php" method="get">
+    <div>
+        <label for="prenom">Prenom :</label>
+        <input type="text" id="prenom" name="prenom">
+    </div>
+
+    <div>
+        <label for="age">age :</label>
+        <input type="number" id="age" name="age"></input>
+    </div>
+
+    <input type="submit" value="submit">
+
+</form>
+
+
+<form action="resultat_formulaire_get.php" method="GET">
+    <div>
+        <label for="prenom">Prenom :</label>
+        <input type="text" id="prenom" name="prenom">
+    </div>
+    <div>
+        <label for="age">Age :</label>
+        <input type="number" id="age" name="age"></input>
+    </div>
+    <input type="submit" value="Submit" />
+</form>
+
+<!-- <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+
+
+if(isset($_GET["prenom"]) && isset($_GET["age"])){
+    $prenom = $_GET["prenom"];
+    $age = $_GET["age"];
+
+    // echo $prenom." ". $age;
+    echo cleanGETandPOST($prenom);
+    // echo htmlspecialchars($prenom);
+    
+    echo " <br/>";
+    // echo htmlspecialchars(utf8_encode($prenom))." ". $age;
+
+    if(is_numeric($age)){
+        echo htmlspecialchars($age);
+    }
+    else{
+        echo "Merci de saisir un entier pour l'age";
+    }
+    // echo is_numeric($age);
+    // echo "<br>";
+    // echo filter_var($age, FILTER_VALIDATE_INT);
+
+}
+
+function cleanGETandPOST($string){
+    return htmlspecialchars(trim(utf8_encode($string)));
+}
+
+<script>alert("hello")</script>
+
+<script> window.open(') </script>
+
+
+<img src="https://www.iconshock.com/img/categories/optimized/gradientify.webp"/> -->
+</body>
+</html>

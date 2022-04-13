@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fo">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculatrice</title>
+</head>
+<body>
+    <div id="bloc_page">
+        <header>
+         
+<div style="text-align:center;">
+
+    <form name="formulaire" method="post" action="result_calculatrice.php">
+        <p>nombre1:<input name="nombre1" type="text" ></p>
+        <p>nombre2:<input name="nombre2" type="text" ></p>
+
+<select name="Operation">
+    <option value="addition">+</option>
+    <option value="soustraction">-</option>
+    <option value="division">/</option>
+    <option value="multiplication">*</option>
+</select>
+
+    <input type="submit" value="calculer">
+    <input type="reset" value="effacer"><br>
+
+    </form>
+</div>
+
+<div style="text-align:center;">
+
+    <form name="escaliers" method="post" action="result_calculatrice.php">
+        <p>Marche:<input name="marche" type="number"></p>   
+        <input type="submit" value="envoyer">
+    </form>
+</div>
+</body>
+</html>

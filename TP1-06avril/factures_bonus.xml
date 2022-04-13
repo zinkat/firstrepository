@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<factures>
+	<facture>
+		<date_emission>21/03/2022</date_emission>
+		<numero>2022_03_21_1</numero>
+		<date_vente>21/03/2022</date_vente>
+		<acheteur>
+			<acheteur_denomination_sociale>IFOCOP Zoo Vincennes</acheteur_denomination_sociale>
+			<acheteur_adresse>Av. Daumesnil, 75012 Paris, France</acheteur_adresse>
+		</acheteur>
+		<vendeur>
+			<vendeur_statut>SA</vendeur_statut>
+			<vendeur_denomination_sociale>Magic Formations</vendeur_denomination_sociale>
+			<vendeur_adresse>1 place de l'hotel de ville, 75001 Paris</vendeur_adresse>
+			<vendeur_numero_rcs>12345678200010</vendeur_numero_rcs>
+			<vendeur_numero_tva>FR11123456782</vendeur_numero_tva>
+		</vendeur>
+		<produit>
+			<produit_designation>Formation au dressage d'🐘</produit_designation>
+			<produit_prix>5000€</produit_prix>
+			<produit_quantite>5</produit_quantite>
+			<produit_quantite_unite>jours</produit_quantite_unite>
+		</produit>
+		<taux_tva>20%</taux_tva>
+		<somme_ht>25000€</somme_ht>
+		<somme_ttc>30000€</somme_ttc>
+	</facture>
+
+	<facture>
+		<date_emission>22/03/2022</date_emission>
+		<numero>2022_03_22_1</numero>
+		<date_vente>22/03/2022</date_vente>
+		<acheteur>
+			<acheteur_denomination_sociale>Zoo la Palmyre</acheteur_denomination_sociale>
+			<acheteur_adresse>6 Av. de Royan, 17570 Les Mathes</acheteur_adresse>
+		</acheteur>
+		<vendeur>
+			<vendeur_statut>SA</vendeur_statut>
+			<vendeur_denomination_sociale>Magic Formations</vendeur_denomination_sociale>
+			<vendeur_adresse>1 place de l'hotel de ville, 75001 Paris</vendeur_adresse>
+			<vendeur_numero_rcs>12345678200010</vendeur_numero_rcs>
+			<vendeur_numero_tva>FR11123456782</vendeur_numero_tva>
+		</vendeur>
+		<produit>
+			<produit_designation>Formation au dressage de 🐒</produit_designation>
+			<produit_prix>2500€</produit_prix>
+			<produit_quantite>10</produit_quantite>
+			<produit_quantite_unite>jours</produit_quantite_unite>
+		</produit>
+		<taux_tva>20%</taux_tva>
+		<somme_ht>25000€</somme_ht>
+		<somme_ttc>30000€</somme_ttc>
+	</facture>
+
+	<facture>
+		<date_emission>23/03/2022</date_emission>
+		<numero>2022_03_23_1</numero>
+		<date_vente>23/03/2022</date_vente>
+		<acheteur>
+			<acheteur_denomination_sociale>ZooParc de Beauval</acheteur_denomination_sociale>
+			<acheteur_adresse>Av. du Blanc, 41110 St Aignan, France</acheteur_adresse>
+		</acheteur>
+		<vendeur>
+			<vendeur_statut>SA</vendeur_statut>
+			<vendeur_denomination_sociale>Magic Formations</vendeur_denomination_sociale>
+			<vendeur_adresse>1 place de l'hotel de ville, 75001 Paris</vendeur_adresse>
+			<vendeur_numero_rcs>12345678200010</vendeur_numero_rcs>
+			<vendeur_numero_tva>FR11123456782</vendeur_numero_tva>
+		</vendeur>
+		<produit>
+			<produit_designation>Formation au dressage d'🐘</produit_designation>
+			<produit_prix>5000€</produit_prix>
+			<produit_quantite>5</produit_quantite>
+			<produit_quantite_unite>jours</produit_quantite_unite>
+		</produit>
+		<produit>
+			<produit_designation>Formation au dressage de 🐒</produit_designation>
+			<produit_prix>2500€</produit_prix>
+			<produit_quantite>10</produit_quantite>
+			<produit_quantite_unite>jours</produit_quantite_unite>
+		</produit>
+		<taux_tva>20%</taux_tva>
+		<somme_ht>50000€</somme_ht>
+		<somme_ttc>60000€</somme_ttc>
+	</facture>
+</factures>

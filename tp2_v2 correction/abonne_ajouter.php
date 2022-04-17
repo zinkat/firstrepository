@@ -1,4 +1,5 @@
 <?php
+// $page = "BO";
 include_once("_includes.php");
 
 $db = new DB();

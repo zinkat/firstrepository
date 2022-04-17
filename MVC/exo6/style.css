@@ -1,0 +1,13 @@
+ td  { 
+    border-width:1px;
+    border-style:solid; 
+    border-color:red;
+    width: 30%;
+ }
+ 
+table th {
+    border-width:1px;
+    border-style:solid; 
+    border-color:red;
+    background-color: rgb(188, 85, 85);
+}

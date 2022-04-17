@@ -1,4 +1,4 @@
-<script type="text/javascript">
+<!-- <script type="text/javascript">
     function functionAjax(idabonne){
         // On créer un objet de type XMLHttpRequest
         let xhr = new XMLHttpRequest();
@@ -41,61 +41,31 @@
         };
         xhr.send();
     }
-</script>
+</script> -->
 
 <div id="tableau">
+
+<table>
+<tr>
+<th>id abonne</th>
+<th>Nom</th>
+<th>Email</th>
+<th>Abonnement</th>
+
+</tr>
+
 <?php
-require_once("config.php");
-// Abonnés
-$stmt = $pdo->prepare("SELECT *
-                        FROM abonne
-                            INNER JOIN abonnement ON abonne.idabonnement = abonnement.idabonnement
-                        LIMIT 25");
-
-$stmt->execute();
-
-$tableau = "<table>";
-$tableau.= "<tr>";
-$tableau.= "<th>id abonne</th>";
-$tableau.= "<th>Nom</th>";
-$tableau.= "<th>Email</th>";
-$tableau.= "<th>Abonnement</th>";
-$tableau.= "<th>Modifier</th>";
-$tableau.= "<th>Supprimer</th>";
-$tableau.= "<th>Détail</th>";
-$tableau.= "</tr>";
-
-foreach($stmt->fetchAll() as $row){
-    $tableau.= "<tr>";
-    $tableau.= "<td>";
-    $tableau.= $row["idabonne"];
-    $tableau.= "</td>";
-    $tableau.= "<td>".utf8_encode($row["nom"])."</td>";
-    $tableau.= "<td>".$row["email"]."</td>";
-    $tableau.= "<td>".$row["abonnement"]."</td>";
+$row = $stmt->fetch()?>
+ <tr>
+ <td> <?php echo $row["idabonne"];?> </td> 
+ <td> <?php echo utf8_encode($row["nom"]);?></td>
+ <td>  <?php echo $row["email"];?></td>
+ <td><?php echo $row["abonnement"];?></td> 
     
-    $tableau.= "<td><a href='UPDATE/exo2/abonne_update.php?idabonne=".$row["idabonne"]."'>";
-    $tableau.= "Modifier";
-    $tableau.= "</a></td>";
+ </tr>
 
-    $tableau.= "<td id='result_".$row["idabonne"]."'>";
-    $tableau.= "<button type='button' onclick='functionAjax(" . $row["idabonne"] . ")'>";
-    $tableau.= "Supprimer";
-    $tableau.= "</button>";
-    $tableau.= "</td>";
+</table>
 
-    $tableau.= "<td>";
-    $tableau.= "<button type='button' onclick='detailAbonne(" . $row["idabonne"] . ")'>";
-    $tableau.= "Détail";
-    $tableau.= "</button>";
-    $tableau.= "</td>";
-
-    $tableau.= "</tr>";
-}
-$tableau.= "</table>";
-
-echo $tableau;
-
-?>
 </div>
-<div id="detail"></div>
+
+<!-- <div id="detail"></div> -->
